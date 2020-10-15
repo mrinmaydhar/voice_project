@@ -192,7 +192,7 @@ model.summary()
 def lrfn(epoch, lr):
     lr_max = 0.01
     lr_min = 0.00001
-    lr_decay = 0.96
+    lr_decay = 0.95
     epoch_sust  = 2
     if epoch % epoch_sust == 0:
         lr = lr_max * lr_decay**((epoch+1)/0.19) 
