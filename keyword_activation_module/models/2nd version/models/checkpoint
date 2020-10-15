@@ -1,2 +1,0 @@
-model_checkpoint_path: "voice_button_model_weights.h5py"
-all_model_checkpoint_paths: "voice_button_model_weights.h5py"
