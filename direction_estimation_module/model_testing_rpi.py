@@ -98,7 +98,8 @@ while True:
             print(dir_frame.shape)
             
             pred_dir = dir_model(dir_frame)
-            print('direction: ',np.argmax(pred_dir))
+            print(pred_dir)
+            print('direction: ',np.argmax(pred_dir,axis=0))
             
             torf = int(input('Was it correct?(1: yes and 0: no)'))
             lb = 1
