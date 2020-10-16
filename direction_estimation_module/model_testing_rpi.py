@@ -97,7 +97,7 @@ while True:
             dir_frame = np.reshape(dir_frame,(1,*dir_frame.shape))
             print(dir_frame.shape)
             
-            pred_dir = dir_model(dir_frame)
+            pred_dir = dir_model.predict(dir_frame)
             print(pred_dir)
             print('direction: ',np.argmax(pred_dir,axis=0))
             
