@@ -32,7 +32,7 @@ audio.getnframes()
 BATCH_SIZE = 8
 SAMPLE_RATE = 16000
 CHANNELS = 1
-EPOCHS =40
+EPOCHS =10
 RECORD_SECONDS = 3
 BUFFER_SIZE = 256
 FRAMES = audio.getnframes()
