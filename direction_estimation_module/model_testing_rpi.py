@@ -21,11 +21,11 @@ DIM = (184,256)
 p = pyaudio.PyAudio()
 
 try:
-    df = pd.read_csv('voice_data_testing.csv')
+    df = pd.read_csv('/home/pi/Project_V/voice_data_testing.csv')
 except:
     df = pd.DataFrame(columns=["name","label"])
-    df.to_csv('voice_data_testing.csv',index=False)
-    df = pd.read_csv('voice_data_testing.csv')
+    df.to_csv('/home/pi/Project_V/voice_data_testing.csv',index=False)
+    df = pd.read_csv('/home/pi/Project_V/voice_data_testing.csv')
    
 
 stream = p.open(format= p.get_format_from_width(SAMPLE_WIDTH),
@@ -51,11 +51,11 @@ name = []
 
 today = date.today()
 try:
-    os.system(f'mkdir test_recordings')
+    os.system(f'mkdir /home/pi/Project_V/test_recordings')
 except:
     pass
 try:
-    os.system(f'mkdir test_recordings/{today}')
+    os.system(f'mkdir /home/pi/Project_V/test_recordings/{today}')
 except:
     pass
 
@@ -106,7 +106,7 @@ while True:
             if torf == 0:
                 lb = 0
                 
-            wf = wave.open(f'test_recordings/{today}/{i}.wav','wb')
+            wf = wave.open(f'/home/pi/Project_V/test_recordings/{today}/{i}.wav','wb')
             wf.setnchannels(1)
             wf.setsampwidth(p.get_sample_size(p.get_format_from_width(SAMPLE_WIDTH)))
             wf.setframerate(SAMPLE_RATE)
@@ -117,7 +117,7 @@ while True:
             name.append(f'{i}.wav')        
             i += 1
     
-            wf = wave.open(f'test_recordings/{today}/{i}.wav','wb')
+            wf = wave.open(f'/home/pi/Project_V/test_recordings/{today}/{i}.wav','wb')
             wf.setnchannels(1)
             wf.setsampwidth(p.get_sample_size(p.get_format_from_width(SAMPLE_WIDTH)))
             wf.setframerate(SAMPLE_RATE)
@@ -128,7 +128,7 @@ while True:
             name.append(f'{i}.wav')        
             i += 1
     
-            wf = wave.open(f'test_recordings/{today}/{i}.wav','wb')
+            wf = wave.open(f'/home/pi/Project_V/test_recordings/{today}/{i}.wav','wb')
             wf.setnchannels(1)
             wf.setsampwidth(p.get_sample_size(p.get_format_from_width(SAMPLE_WIDTH)))
             wf.setframerate(SAMPLE_RATE)
@@ -139,7 +139,7 @@ while True:
             name.append(f'{i}.wav')        
             i += 1
     
-            wf = wave.open(f'test_recordings/{today}/{i}.wav','wb')
+            wf = wave.open(f'/home/pi/Project_V/test_recordings/{today}/{i}.wav','wb')
             wf.setnchannels(1)
             wf.setsampwidth(p.get_sample_size(p.get_format_from_width(SAMPLE_WIDTH)))
             wf.setframerate(SAMPLE_RATE)
@@ -152,7 +152,7 @@ while True:
             
             df1 = {"name":name,"label":label}
             df1 = pd.DataFrame(df1)
-            df1.to_csv('voice_data_testing.csv',mode='a',index=False,header=False)
+            df1.to_csv('/home/pi/Project_V/voice_data_testing.csv',mode='a',index=False,header=False)
             break
 	
     except KeyboardInterrupt:
