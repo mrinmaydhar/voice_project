@@ -153,7 +153,12 @@ while True:
             df1 = {"name":name,"label":label}
             df1 = pd.DataFrame(df1)
             df1.to_csv('/home/pi/Project_V/voice_data_testing.csv',mode='a',index=False,header=False)
-            break
+            model.fit(np.array([frames0,frames1,frames2,frames3],dtype=np.float32),[lb,lb,lb,lb],batch_size=1,epoch=1)
+            model.save('/home/pi/Project_V/models/4th_version/voice_button_model_lstm.h5')
+            if lb == 1:
+                model.fit(np.array([frames0,frames1,frames2,frames3],dtype=np.float32),[lb,lb,lb,lb],batch_size=1,epoch=1)
+                model.save('/home/pi/Project_V/models/4th_version/voice_button_model_lstm.h5')
+                break
 	
     except KeyboardInterrupt:
         stream.stop_stream()
