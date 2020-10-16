@@ -99,7 +99,7 @@ while True:
             
             pred_dir = dir_model.predict(dir_frame)
             print(pred_dir)
-            print('direction: ',np.argmax(pred_dir,axis=0))
+            print('direction: ',np.argmax(pred_dir,axis=1))
             
             torf = int(input('Was it correct?(1: yes and 0: no)'))
             lb = 1
