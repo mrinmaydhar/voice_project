@@ -156,7 +156,7 @@ while True:
             model.fit(np.array([frames0,frames1,frames2,frames3],dtype=np.float32),[lb,lb,lb,lb],batch_size=1,epoch=1)
             model.save('/home/pi/Project_V/models/4th_version/voice_button_model_lstm.h5')
             if lb == 1:
-                model.fit(np.array([frames0,frames1,frames2,frames3],dtype=np.float32),[lb,lb,lb,lb],batch_size=1,epoch=1)
+                model.fit(np.array([frames0,frames1,frames2,frames3],dtype=np.float32),[lb,lb,lb,lb],batch_size=1,epochs=1)
                 model.save('/home/pi/Project_V/models/4th_version/voice_button_model_lstm.h5')
                 break
 	
