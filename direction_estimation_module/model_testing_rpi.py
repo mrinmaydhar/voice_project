@@ -36,9 +36,9 @@ stream = p.open(format= p.get_format_from_width(SAMPLE_WIDTH),
                 input_device_index = 0,
                 frames_per_buffer=BUFFER_SIZE)
 
-model = tf.keras.models.load_model('/Project_V/models/4th_version/voice_button_model_lstm.h5')
+model = tf.keras.models.load_model('/home/pi/Project_V/models/4th_version/voice_button_model_lstm.h5')
 #model.load_weights('models/2nd version/voice_button_model_weights.h5py')
-dir_model = tf.keras.models.load_model('/Project_V/direction_detection_module/models/1st_version/voice_direction_detection.h5')
+dir_model = tf.keras.models.load_model('/home/pi/Project_V/direction_detection_module/models/direction_model_lstm.h5')
 try:
     i = df.index.stop+1
 except:
@@ -80,7 +80,10 @@ while True:
         frames1 = np.array(frames1,dtype=np.float16)
         frames2 = np.array(frames2,dtype=np.float16)
         frames3 = np.array(frames3,dtype=np.float16)
-        
+        frames0 = np.reshape(frames0,(184,256))
+        frames1 = np.reshape(frames1,(184,256))
+        frames2 = np.reshape(frames2,(184,256))
+        frames3 = np.reshape(frames3,(184,256))
         pred = model.predict([frames0,frames1,frames2,frames3])
         print(pred)
         if pred[0] > 0.88:
