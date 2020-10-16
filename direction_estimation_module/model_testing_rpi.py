@@ -86,7 +86,7 @@ while True:
         frames3 = np.reshape(frames3,(184,256))
         pred = model.predict(np.array([frames0,frames1,frames2,frames3],dtype=np.float32))
         print(pred)
-        if np.sum(pred)/4 > 0.88:
+        if pred[0] > 0.88 or pred[1]>0.88 or pred[2]>0.88 or pred[3]>0.88:
             print("Hello")
             frames0_dir = np.reshape(frames0,(184,256,1))
             frames1_dir = np.reshape(frames1,(184,256,1))
